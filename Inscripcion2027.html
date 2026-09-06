@@ -1298,13 +1298,14 @@
 					<div class="contact-form-col" id="form-inscripcion">
 						<h2>Formulario de Inscripción</h2>
 						<form
-							id="contact-form-id"
-							action="https://formsubmit.co/ajax/esteban.ruiz.sec@institutolamerced.edu.ar"
-							method="POST"
-						>
-							<input type="hidden" name="_captcha" value="false" />
-							<input type="hidden" name="_language" value="es" />
-							<input type="text" name="_honey" style="display: none" />
+						action="https://formsubmit.co/el/zuwema"
+						method="POST"
+					>
+						<input type="hidden" name="_captcha" value="false" />
+						<input type="hidden" name="_language" value="es" />
+						<input type="hidden" name="_subject" value="Nueva Inscripción 2027 - Sitio Web" />
+						<input type="hidden" name="_next" value="https://estebanquito9347.github.io/insm-prueba.github.io/Inscripcion2027.html?enviado=true" />
+						<input type="text" name="_honey" style="display: none" />
 
 							<fieldset class="inscripcion-fieldset">
 								<legend>Datos del Alumno/a</legend>
@@ -1425,7 +1426,7 @@
 								<textarea id="message" name="Observaciones"></textarea>
 							</div>
 
-							<button type="submit" class="submit-btn" id="submit-btn">Enviar Inscripción</button>
+							<button type="submit" class="submit-btn">Enviar Inscripción</button>
 						</form>
 						<div id="response-message" class="response-message"></div>
 					</div>
@@ -1601,7 +1602,7 @@
 				runHeroAnimation();
 				
 				// Verificación de IDs Críticos del DOM
-				const criticalIDs = ['contact-form-id', 'submit-btn', 'response-message', 'dropdownMenu'];
+				const criticalIDs = ['dropdownMenu'];
 				criticalIDs.forEach(id => {
 					if (!document.getElementById(id)) {
 						console.error(`Error: El contenedor esencial con ID '${id}' no fue encontrado en el DOM.`);
@@ -1748,19 +1749,6 @@
 				currentYearEl.textContent = new Date().getFullYear();
 			}
 
-			// --- Envío de Formulario AJAX ---
-			const contactFormAjax = document.getElementById('contact-form-id');
-			const submitBtn = document.getElementById('submit-btn');
-			const responseDiv = document.getElementById('response-message');
-
-			if (contactFormAjax) {
-				contactFormAjax.addEventListener('submit', function (e) {
-					e.preventDefault();
-					submitBtn.disabled = true;
-					submitBtn.textContent = 'Enviando...';
-					responseDiv.style.display = 'none';
-					responseDiv.className = 'response-message';
-
 					(function () {
 						Promise.resolve(null).then(function (token) {
 							const formData = new FormData(contactFormAjax);
@@ -1801,8 +1789,6 @@
 							submitBtn.textContent = 'Enviar Inscripción';
 						});
 					});
-				});
-			}
 		</script>
 	</body>
 </html>
