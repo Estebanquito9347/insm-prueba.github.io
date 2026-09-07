@@ -675,6 +675,34 @@
 				z-index: 1;
 			}
 
+			.hero-section::marker {
+				/* evitar regla vacía que genera warning */
+				display: none;
+			}
+
+			.hero-shape-diagonal {
+				position: absolute;
+				bottom: -2px;
+				left: 0;
+				width: 100%;
+				height: 12vh;
+				background: #f39c12;
+				clip-path: polygon(0 45%, 100% 0%, 100% 100%, 0% 100%);
+				z-index: 2;
+			}
+
+			.hero-color-block {
+				position: absolute;
+				top: 0;
+				right: -10%;
+				width: 55%;
+				height: 100%;
+				background: linear-gradient(135deg, rgba(207, 6, 33, 0.85), rgba(207, 6, 33, 0));
+				clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+				z-index: 1;
+				pointer-events: none;
+			}
+
 			.hero-content {
 				position: relative;
 				z-index: 2;
@@ -2388,6 +2416,7 @@
 
 		<main>
 			<section class="hero-section">
+				<div class="hero-color-block"></div>
 				<div class="hero-content">
 					<h1>
 						<span class="hero-line-1">Listos</span>
@@ -2403,6 +2432,8 @@
 						</a>
 					</p>
 				</div>
+				<div class="hero-shape-diagonal"></div>
+
 			</section>
 
 			<section id="nuestro-colegio" class="college-section">
@@ -3524,6 +3555,8 @@
 					});
 				});
 			}); // Cierre del DOMContentLoaded
+
+		} // Asegura cierre de bloque abierto previamente
 		</script>
 	</body>
 </html>
